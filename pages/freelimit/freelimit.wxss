@@ -1,0 +1,54 @@
+/* pages/freelimit/freelimit.wxss */
+page{
+  background:rgba(118,118,118, 0.1);
+}
+.free_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  height: auto;
+  margin-top: 35rpx;
+}
+.free_container .up{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  margin-bottom: 20rpx;
+  padding: 20rpx 0;
+}
+.free_container .up .son{
+  height: auto;
+  font-family: '楷体';
+  font-size: 30rpx;
+  color:#767676;
+  text-align: center;
+  margin:8rpx;
+}
+.free_container .up .spec_son{
+  font-size: 60rpx;
+  color: #000000;
+  font-weight: bold;
+}
+
+.free_container .down{
+  width: 100%;
+  height: auto;
+  background: white;
+}
+.free_container .down .first_son{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-family: '楷体';
+  font-size: 30rpx;
+  padding:0 50rpx; 
+  border-bottom: 1px #eee solid;
+}
+.free_container .down .first_son .fson_r{
+  color: #8C8C8C;
+}

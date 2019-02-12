@@ -1,0 +1,21 @@
+<!--pages/freelimit/freelimit.wxml-->
+<!-- 免押金额度 -->
+
+<view class='free_container'>
+
+  <view class='up'>
+    <text class='son'>剩余免押金额度</text>
+    <text class='son spec_son'>￥{{freedepositNum ? freedepositNum : '0.00'}}</text>
+    <text class='son'>总额度￥1,000.00</text>
+  </view>
+
+  <view class='down'>
+    <view class='first_son'>
+        <text class='fson_l'>实名认证</text>
+        <navigator class='fson_r' url='/pages/docertify/docertify' wx:if="{{isCertify==0}}">马上认证 ></navigator>
+        <text wx:elif="{{isCertify==1}}" class='fson_r'>已通过</text>
+    </view>
+  </view>
+
+
+</view>

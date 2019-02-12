@@ -1,0 +1,132 @@
+<!--pay.wxml-->
+<view class="w100">
+		<view class="p_all bg_white df item" wx:for="{{productData}}">
+			<view class="cp_photo">			
+				<image src="{{item.photo_x}}"></image>
+			</view>
+			<view class="df_1">	
+				<view class="font_14 mt5 ovh1">
+		           {{item.name}}
+               <text class="date">{{item.startdate}} - {{item.enddate}}</text>
+		        </view>
+			<text class="gm_ovh_1h red pt10">¥{{item.price}}/天 * {{item.num}} 天</text>
+      <text class="gm_ovh_1h c6 pt10">数量：{{item.number}}  {{item.company}} </text>
+      <text class="gm_ovh_1h c6  pt10">租金共计：¥{{item.zprice}}</text>
+      <text class="gm_ovh_1h c6  pt10">押金：¥{{item.price_yj}}</text>
+      <!-- 注释的是前台计算免减金额的方法 -->
+      <!-- <view wx:if="{{isCertify == 1}}">
+        <text class="gm_ovh_1h c6  pt10" wx:if="{{item.price_yj *item.number <= freedepositNum}}">免押扣减：¥{{item.price_yj *item.number}}</text>
+        <text class="gm_ovh_1h c6  pt10" wx:else>免押扣减：¥{{freedepositNum ? freedepositNum : 0}}</text>
+      </view>
+      <text class="gm_ovh_1h c6  pt10" wx:else>免押扣减：¥0.00</text> -->
+      <!-- 注释的是前台计算免减金额的方法 -->
+
+      
+			
+			</view>
+		</view>		
+            <view class="p_all bg_white mt10 font_14 ">订单总额：¥{{amount}} </view>
+		        <view class="p_all bg_white pt10 font_14 ">免押扣减：¥{{avoid_reduction_amount}}</view>
+		        <text class="p_all bg_white pt10 font_14" wx:if="{{user_rank == 1}}">VIP免押金扣减：¥{{vip_reduction_amount}}</text>
+		        <!-- <text class="gm_ovh_1h c6  pt10">免押扣减：¥{{avoid_reduction_amount}}</text> -->
+		<view class="p_all bg_white mt10 font_14" wx:if="{{addemt==0}}">
+		   <navigator url="../address/user-address/user-address?cartId={{cartId}}" hover-class="none">
+			<view class="df">
+     
+				<view class="df_1 c6">
+				<view class="l_h20">收货人：{{address.name}}<text class="fl_r mr10">{{address.tel}}</text></view>
+				<view class="l_h20 mt5">地址：{{address.address_xq}}</view>
+				</view>
+				<image class="x_right mt15" src="/images/x_right.png"></image>			
+			</view>
+			</navigator>
+		</view>
+		<view class="p_all bg_white mt10 font_14" wx:else>
+		   <navigator url="../address/user-address/user-address?cartId={{cartId}}" hover-class="none">
+			<view class="addrdf">
+				添加用户地址:	
+			</view>
+      <view class="addrdf">
+				(未填写)		
+			</view>
+			</navigator>
+		</view>
+			
+<view class="xuan" wx:if="{{vou!=''}}" >
+	<view class="hui">可使用优惠券：</view>
+<!--设置监听器，当点击radio时调用-->
+<radio-group bindchange="listenerRadioGroup" class="hui">
+<!--label通常与radio和checkbox结合使用-->
+  <label style="display: flex" wx:for="{{vou}}" class="xuan" bindtap="getvou" data-id="{{item.vid}}" data-price="{{item.amount}}">
+  <radio value="{{item.vid}}" />满{{item.full_money}}立减{{item.amount}}元
+ </label>
+ <label style="display: flex" class="xuan" bindtap="getvou" data-id="0" data-price="0">
+  <radio value="0"/>不使用优惠券
+ </label>
+</radio-group>
+
+
+</view>
+
+  
+
+    <!-- 添加是否自提 -->
+    <view class='p_all bg_white mt10 font_14'>
+        <text class='c6'>配送方式</text>
+        <radio-group class="self-have" bindchange="radioChange">
+            <radio class="" value="0" checked >
+                <text class='c6'>顺丰</text>
+            </radio>
+            <radio class="self-son" value="1" >
+                <text class='c6'>自提</text>
+            </radio>
+        </radio-group>
+        <view class='c6 ad-top'>自提地址：北京市海淀区中关村大街1号海龙大厦1352</view>
+    </view>
+    <!-- 添加是否自提 -->
+
+    <!-- 是否同意租赁条款 -->
+    <view class='p_all bg_white mt10 font_14 agreement'>
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox value="1" checked/>
+          </label>
+        </checkbox-group>
+        <text class='c6'>我已阅读并同意</text>
+        <navigator class='bColor' url='/pages/aboutus/aboutus?id=3'>《盛嘉菲设备租赁合同》</navigator>
+    </view>
+
+    <!-- 签名 -->
+    <view wx:if="{{signature}}" class='p_all bg_white mt10 font_14 signature'>
+        <image src="{{signature}}" class='sigImg'></image>
+    </view>
+    <navigator wx:else class='p_all bg_white mt10 font_14 bColor' open-type='redirect' url="/pages/handwriting/handwriting?cartId={{cartId}}">添加签名</navigator>
+
+
+
+		<view class="p_all bg_white mt10 font_14">
+			<textarea class="min_60" auto-height name="remark" placeholder="备注" bindinput="remarkInput" value="{{remark}}"/> 
+		</view>	
+
+	<view class="zhifu mt10 tc">应共支付：<span class="font_20 red">¥ {{total}}</span></view>
+	<!-- <navigator url="##" hover-class="none" class="zhifu mt10">支付宝<image class="x_right" src="/images/x_right.png"></image></navigator> -->
+	<!-- <navigator url="##" hover-class="none" class="zhifu">银联支付<image class="x_right" src="/images/x_right.png"></image></navigator> -->
+	<!-- <navigator url="../order/downline" hover-class="none" class="zhifu">线下支付<image class="x_right" src="/images/x_right.png"></image></navigator>
+	<navigator url="../order/downline" hover-class="none" class="zhifu">线下支付<image class="x_right" src="/images/x_right.png"></image></navigator>
+ -->
+	<view class="p_all mt10">
+		<view class="btnGreen">
+			<!-- <button type="primary" id="btnPay" formType="submit" loading="{{loading}}" disabled="{{disabled}}">微信支付</button> -->
+			<!-- <navigator url="../order/detail" hover-class="none">
+				<button class="wx_pay_submit" type="primary" id="wxPay" formType="submit" >微信支付</button>
+				<button class="xx_pay_submit" type="default" id="xxPay" formType="submit" >线下支付</button>
+			</navigator> -->
+			<button class="wx_pay_submit" type="primary" id="wxPay" disabled="{{btnDisabled}}" formType="submit" bindtap="createProductOrderByWX">微信支付</button>
+			<button class="xx_pay_submit" type="default" id="xxPay" disabled="{{btnDisabled}}" formType="submit" bindtap="createProductOrderByXX">线下支付</button>
+      <button class="xx_pay_submit" type="default" id="aliPay" disabled="{{btnDisabled}}" formType="submit" bindtap="createProductOrderByAlipay">支付宝支付</button>
+			<button wx:if="{{user_rank!=1}}" class='xx_pay_submit' type="default" id="preauth" disabled="{{btnDisabled}}" formType="submit" bindtap="createProductOrderByPreauth">支付宝预授权支付</button>
+      <button wx:if="{{user_rank!=1}}" class='xx_pay_submit' type="default" id="unionpay" disabled="{{btnDisabled}}" formType="submit" bindtap="createProductOrderByUnionpay">银联预授权支付</button>
+		</view>
+	</view>
+
+</view>

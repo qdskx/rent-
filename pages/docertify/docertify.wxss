@@ -1,0 +1,42 @@
+/* pages/docertify/docertify.wxss */
+page{
+  height: 100%;
+  width: 100%;
+}
+.docert_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center ;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-family: '微软雅黑';
+  padding-top: 140rpx;
+  background: #F7F7F7;
+}
+.docert_container .warn{
+  width: 243rpx;
+  height: 243rpx;
+  background: url('https://www.sjfpro.com/shop/wechat_shop1/wechat_shop_xcx-master/images/reg_images/warn.png');
+  background-size: 243rpx;
+}
+.docert_container .copy{
+  width:225rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background-color:#0699FF;
+  border:2px solid #0699FF;
+  border-radius: 4px;
+}
+.docert_container .text_up{
+  color:black;
+  font-size: 36rpx;
+  display: block;
+  padding-top: 30rpx;
+}
+.docert_container .text_bot{
+  color:#A1A1A1;
+  font-size:30rpx;
+  padding-bottom: 40rpx;
+}

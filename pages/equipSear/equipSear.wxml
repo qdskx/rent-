@@ -1,0 +1,31 @@
+<!-- index.wxml -->
+<!-- 搜索 -->
+<view class="search df">
+    <input class="df_1" placeholder="请输入您要搜索的产品" value="{{searchValue}}" focus="{{focus}}" bindconfirm="startSear" bindinput="searchValueInput"/>
+    <button bindtap="doSearch"><image class="searchcion" src="/images/search.png"></image></button>
+</view>
+<view class="page">
+
+  
+    
+    <view class="cont">
+      <navigator class="pr" url="../product/detail?productId={{item.id}}" hover-class="changestyle"
+                 wx:for="{{productData}}">
+        <image class="photo" src="{{item.photo_x}}"></image>
+        <view class="title">{{item.name}}</view>
+        <view style="line-height:50rpx;padding:10rpx 0;">
+          <view class="gmxx" style="  color: red;font-size:30rpx">¥ {{item.price_yh}}/天</view>
+          <view class="gmx">押金： ¥{{item.price}}</view>
+        </view>
+        <view style="display:flex;line-height:50rpx;color:#999">
+          <view class="gmxx" style="font-size:28rpx;width:30%">
+            <text wx:if="item.is_show==1">新品</text>
+            <text wx:elif="item.is_hot==1">热销</text>
+            <text wx:else>推荐</text>
+          </view>
+          <view class="ku" style="width:60%">销量：{{item.shiyong}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="clear mt10" bindtap="getMore">点击查看更多</view>
+  </view>

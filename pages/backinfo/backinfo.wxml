@@ -1,0 +1,43 @@
+<!--pages/backinfo/backinfo.wxml-->
+<view class='mt16 o-con o-adr-s'>
+     <image src="/images/sf.png" class="send-icon1 fl" ></image>
+  <view class='d'> 
+    <view class="f28 ">物流公司：<span>顺丰速递</span></view>
+    <view class="f28">快递单号：<span>{{mailno}}</span></view>  
+    <view class="f28 ">官方客服：95338</view>
+  </view>
+</view>
+
+<view class='o-adr-s'>
+    <view class="f28 fl">路径跟踪</view>
+    <view class="f28 fr btn-area" bindtap="delLog">作废重填</view>  
+</view>
+<view class='logisit' wx:for="{{list}}" wx:key="key">
+    <!-- 列表 -->
+    <view class='list'>
+    <!-- 时间 -->
+      <view class='list_dates_page'>{{item.accept_time}}</view>
+      <view class='list_name_page'>
+        <!-- 列表名称 -->
+        <lable class='list_name'>{{item.accept_address}} {{item.remark}}</lable>
+      </view>
+      
+ 
+    </view>
+ 
+ 
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+/* pages/rent/rent.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  margin-top: 20rpx;
+}
+.rent-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: baseline; */
+  width: 100%;
+  /* background: green; */
+}
+
+/* 上半部分的问题列表 */
+.rent-container .rent-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 26rpx;
+  width: 100%;
+  background: #fff;
+  color:#000;
+  padding-left: 50rpx;
+  /* background: green; */
+}
+.rent-container .rent-top .top-son{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  /* background: pink; */
+  border-bottom: 1px solid #ECECEC;
+  /* border-bottom: 1px solid red; */
+}
+.rent-container .rent-top .no-bot-border{
+  border:none;
+}
+
+
+/* 下半部分的各种子分类 */
+.rent-container .rent-bot{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-content: flex-end; */
+  width: 90%;
+  background:#fff;
+  font-size: 34rpx;
+  height: 25rpx;
+  line-height: 25rpx;
+  margin:0 auto;
+  padding: 40rpx 43rpx;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  /* border-top: 1px solid #E1E1E1; */
+  box-shadow:0 -5px 5px -5px #333;
+}
+.rent-container .rent-bot .bot-son{
+  width: 50%;
+  border-right: 1px solid #C8C8C8;
+  /* background: yellow; */
+}
+.rent-container .rent-bot .bot-son:last-child{
+  border:none;
+}
+.rent-container .rent-bot .no-l-padding{
+  padding-left: 0;
+}
+
+/* 活动按钮的样式 */
+ .active{
+    color:#087BCC;
+    /* border-bottom: 4rpx solid #F65959; */
+}
+
+

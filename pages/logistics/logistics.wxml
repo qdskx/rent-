@@ -1,0 +1,34 @@
+<!-- 外层pages -->
+<view class='pages' wx:if="{{mailno}}">
+ 
+  <!-- 头部 -->
+  <view class='head'>
+    <image class='head_img' src='../../images/timg.jpg'></image>
+    <label class='head_name'>顺丰速运</label>
+    <label class='head_title'>运单号：{{mailno}}</label>
+    <label class='head_tel_name'>官方客服:95338</label>
+  </view>
+  <!-- 追踪 -->
+  <view class='logisit' wx:for="{{list}}" wx:key="key">
+    <!-- 列表 -->
+    <view class='list'>
+      <!-- 时间 -->
+      <view class='list_dates_page'>{{item.accept_time}}</view>
+      
+      <view class='list_name_page'>
+        <!-- 列表名称 -->
+        <lable class='list_name'>{{item.accept_address}} {{item.remark}}</lable>
+      </view>
+      
+ 
+ 
+    </view>
+    <!-- 列表底线 -->
+
+ 
+ 
+  </view>
+ 
+ 
+ 
+</view>

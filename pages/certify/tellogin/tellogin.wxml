@@ -1,0 +1,40 @@
+<!--pages/certify/tellogin/tellogin.wxml-->
+
+<view class='reg_container'>
+    <view class='top'>
+    <view class='sec'>
+        <input type='number' placeholder='手机号码'  class='vertical'/>
+    </view>
+    <view class='sec'>
+        <navigator class='spec'>
+            <input type='number' placeholder='验证码'  class='vertical'/>
+            <text class='getcode'>获取验证码</text>
+        </navigator>
+    </view>
+    </view>
+
+    <view class='bot'>
+    <view class='mid'>
+        <navigator class='acct'>
+              <text>密码登录</text>
+        </navigator>
+        <navigator class='acct'>
+              <text>新用户？</text>
+        </navigator>
+        <navigator class='imme'>
+              <button class='btn'>马上登录</button>
+        </navigator>
+    </view>
+
+    <view class='agree'>
+        <text class='black'>登录即代表你同意</text>
+        <navigator>
+              <text class='blue'>兰拓隐私协议</text>
+        </navigator>
+        <text class='black'>和</text>
+        <navigator>
+              <text class='blue'>服务协议</text>
+        </navigator>
+    </view>
+    </view>
+</view>
