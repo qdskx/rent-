@@ -25,3 +25,7 @@ $redis->connect('127.0.0.1' , 6379);
 echo 'ssssss';
 echo PHP_EOL;
 echo 'dddddddd';
+
+
+
+echo '我就是想要编辑这个文件';
