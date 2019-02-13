@@ -1,6 +1,0 @@
-/* pages/aboutus/aboutus.wxss */
-page{
-  width: 93%;
-  height: 100%;
-  padding-left: 30rpx;
-}
