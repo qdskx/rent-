@@ -32,4 +32,10 @@ echo '我就是想要编辑这个文件';
 
 echo 'ssssssss';
 
-ECHO 'FFFFFFF';
+
+
+
+echo 'fffffffffff'
+	;
+
+
